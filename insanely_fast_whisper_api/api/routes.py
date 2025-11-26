@@ -31,6 +31,27 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
+@router.get(
+    "/v1/models",
+    tags=["Models"],
+    summary="List Models",
+    description="List available Whisper models (OpenAI API compatibility)",
+)
+async def list_models() -> dict:
+    """Return available models for OpenAI API compatibility."""
+    return {
+        "object": "list",
+        "data": [
+            {
+                "id": "whisper-1",
+                "object": "model",
+                "created": 1677532384,
+                "owned_by": "openai",
+            }
+        ],
+    }
+
+
 @router.post(
     "/v1/audio/transcriptions",
     tags=["Transcription"],
