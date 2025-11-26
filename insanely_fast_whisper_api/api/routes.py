@@ -122,10 +122,6 @@ async def create_transcription(
             task=task,
             timestamp_type=timestamp_type,
             original_filename=file.filename,
-            stabilize=stabilize,
-            demucs=demucs,
-            vad=vad,
-            vad_threshold=vad_threshold,
         )
         logger.info("Transcription completed successfully")
 
@@ -229,10 +225,6 @@ async def create_translation(
             task="translate",
             timestamp_type=timestamp_type,
             original_filename=file.filename,
-            stabilize=stabilize,
-            demucs=demucs,
-            vad=vad,
-            vad_threshold=vad_threshold,
         )
         logger.info("Translation completed successfully")
         logger.debug("Translation result: %s", result)
